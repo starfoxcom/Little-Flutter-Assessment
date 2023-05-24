@@ -23,7 +23,6 @@ abstract class CoreRepository {
 
 /// CoreRepository implementation
 class CoreRepositoryImpl implements CoreRepository {
-  /// Initialize the repository.
   @override
   Future<void> init() async {
     log('Core Repository initializing');

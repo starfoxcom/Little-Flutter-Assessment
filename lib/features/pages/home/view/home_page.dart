@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:little_flutter_assessment/router/router.dart';
 import 'package:pokemon_repository/models/models.dart';
 import 'package:pokemon_repository/pokemon_repository.dart';
 
@@ -49,9 +50,11 @@ class _HomePageState extends ConsumerState<HomePage> {
                       return Card(
                         child: InkWell(
                           onTap: () {
-                            // context.pushRoute(
-                            //   PokemonDetailsRoute(id: index + 1),
-                            // );
+                            context.pushRoute(
+                              DetailsRouter(
+                                pokemonName: pokemon?.name ?? '',
+                              ),
+                            );
                           },
                           child: Column(
                             children: [

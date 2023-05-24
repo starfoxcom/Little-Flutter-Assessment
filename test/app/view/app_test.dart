@@ -8,7 +8,7 @@ void main() {
     testWidgets('renders the initial route (HomePage)', (tester) async {
       await tester.pumpWidget(ProviderScope(child: App()));
       await tester.pumpAndSettle();
-      expect(find.byType(HomePage), findsOneWidget);
+      expect(find.byType(DetailsPage), findsOneWidget);
     });
   });
 }

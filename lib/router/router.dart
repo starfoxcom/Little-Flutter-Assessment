@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:little_flutter_assessment/features/pages/pages.dart';
-// import 'package:flutter/material.dart';
 
 part 'router.gr.dart';
 
@@ -13,9 +13,9 @@ class AppRouter extends _$AppRouter {
           page: HomeRouter.page,
           initial: true,
         ),
-        // AutoRoute(
-        //   path: 'pokemons/details/:pokemonName',
-        //   page: DetailsRouter.page,
-        // ),
+        AutoRoute(
+          path: '/pokemons/details/:pokemonName',
+          page: DetailsRouter.page,
+        ),
       ];
 }

@@ -1,22 +1,34 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AppBlocObserver extends BlocObserver {
-  const AppBlocObserver();
+class AppProviderObserver extends ProviderObserver {
+  const AppProviderObserver();
 
   @override
-  void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
-    super.onChange(bloc, change);
-    log('onChange(${bloc.runtimeType}, $change)');
+  void didAddProvider(
+    ProviderBase<Object?> provider,
+    Object? value,
+    ProviderContainer container,
+  ) {
+    super.didAddProvider(provider, value, container);
+    log('didAddProvider(${provider.runtimeType}, $value, $container)');
   }
 
   @override
-  void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
-    log('onError(${bloc.runtimeType}, $error, $stackTrace)');
-    super.onError(bloc, error, stackTrace);
+  void didUpdateProvider(
+    ProviderBase<Object?> provider,
+    Object? previousValue,
+    Object? newValue,
+    ProviderContainer container,
+  ) {
+    super.didUpdateProvider(provider, previousValue, newValue, container);
+    log(
+      // ignore: lines_longer_than_80_chars
+      'didUpdateProvider(${provider.runtimeType}, $previousValue, $newValue, $container)',
+    );
   }
 }
 
@@ -25,9 +37,12 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  Bloc.observer = const AppBlocObserver();
-
   // Add cross-flavor configuration here
 
-  runApp(await builder());
+  runApp(
+    ProviderScope(
+      observers: const [AppProviderObserver()],
+      child: await builder(),
+    ),
+  );
 }

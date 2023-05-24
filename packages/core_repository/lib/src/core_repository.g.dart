@@ -6,13 +6,13 @@ part of 'core_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$coreRepositoryHash() => r'cdaa40e535aa3bc9cb51e01759c72f404a0b9f6e';
+String _$coreRepositoryHash() => r'e4ab4a0186d6fbb6be4df821e4783717a43ce518';
 
 /// CoreRepository provider
 ///
 /// Copied from [coreRepository].
 @ProviderFor(coreRepository)
-final coreRepositoryProvider = AutoDisposeProvider<CoreRepository>.internal(
+final coreRepositoryProvider = Provider<CoreRepository>.internal(
   coreRepository,
   name: r'coreRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,7 +22,7 @@ final coreRepositoryProvider = AutoDisposeProvider<CoreRepository>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef CoreRepositoryRef = AutoDisposeProviderRef<CoreRepository>;
+typedef CoreRepositoryRef = ProviderRef<CoreRepository>;
 String _$coreRepositoryInitHash() =>
     r'12b9935ea7ebe0c4a2dca4524df529d76d5d79d8';
 

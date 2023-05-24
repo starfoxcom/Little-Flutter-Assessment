@@ -39,6 +39,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   // Add cross-flavor configuration here
 
+  // Run the app
   runApp(
     ProviderScope(
       observers: const [AppProviderObserver()],

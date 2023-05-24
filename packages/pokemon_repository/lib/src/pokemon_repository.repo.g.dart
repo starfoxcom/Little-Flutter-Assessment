@@ -17,3 +17,15 @@ Future<PaginatedPokemon> pokemonRepositoryGetPaginatedPokemon(
         pageOffset: pageOffset,
       );
 }
+
+/// Repositroy: PokemonRepository, Method: getPokemonDetails
+///
+/// Get pokemon details by id
+@riverpod
+Future<PokemonDetails> pokemonRepositoryGetPokemonDetails(
+    PokemonRepositoryGetPokemonDetailsRef ref,
+    {required String pokemonName}) {
+  return ref.watch(pokemonRepositoryProvider).getPokemonDetails(
+        pokemonName: pokemonName,
+      );
+}

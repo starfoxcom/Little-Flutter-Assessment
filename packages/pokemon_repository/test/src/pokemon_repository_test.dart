@@ -30,7 +30,7 @@ void main() {
     testResultProvider(
       'can get pokemon details',
       provider: pokemonRepositoryProvider,
-      act: (value) => value.getPokemonDetails(id: 35),
+      act: (value) => value.getPokemonDetails(pokemonName: 'bulbasaur'),
       expect: () => [isA<PokemonDetails>()],
     );
   });

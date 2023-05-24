@@ -16,6 +16,8 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^2.3.6
   intl: ^0.18.0
+  pokemon_repository:
+    path: packages/pokemon_repository
   riverpod_annotation: ^2.1.1
 
 dev_dependencies:

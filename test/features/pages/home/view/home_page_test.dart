@@ -5,6 +5,8 @@ import 'package:little_flutter_assessment/features/pages/pages.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:pokemon_repository/models/models.dart';
 
+import '../../../../helpers/helpers.dart';
+
 const PaginatedPokemon paginatedPokemon = PaginatedPokemon(
   count: 1281,
   next: '',
@@ -97,15 +99,13 @@ void main() {
   group('HomePage', () {
     testWidgets('renders the HomePage with data', (tester) async {
       await mockNetworkImagesFor(() async {
-        await tester.pumpWidget(
-          ProviderScope(
-            overrides: [
-              pokemonsFutureProvider.overrideWith(
-                (ref) => Future.value(paginatedPokemon),
-              ),
-            ],
-            child: App(),
-          ),
+        await tester.pumpApp(
+          const HomePage(),
+          providerOverrides: [
+            pokemonsFutureProvider.overrideWith(
+              (ref) => Future.value(paginatedPokemon),
+            ),
+          ],
         );
         await tester.pumpAndSettle();
         expect(find.byType(HomePage), findsOneWidget);
@@ -115,15 +115,13 @@ void main() {
 
     testWidgets('renders the HomePage with error', (tester) async {
       await mockNetworkImagesFor(() async {
-        await tester.pumpWidget(
-          ProviderScope(
-            overrides: [
-              pokemonsFutureProvider.overrideWith(
-                (ref) => Future.error('Oops'),
-              ),
-            ],
-            child: App(),
-          ),
+        await tester.pumpApp(
+          const HomePage(),
+          providerOverrides: [
+            pokemonsFutureProvider.overrideWith(
+              (ref) => Future.value(paginatedPokemon),
+            ),
+          ],
         );
         await tester.pumpAndSettle();
         expect(find.byType(HomePage), findsOneWidget);
@@ -133,18 +131,16 @@ void main() {
     testWidgets('renders the HomePage and taps next page when pageOffset is 0',
         (tester) async {
       await mockNetworkImagesFor(() async {
-        await tester.pumpWidget(
-          ProviderScope(
-            overrides: [
-              pokemonsFutureProvider.overrideWith(
-                (ref) => Future.value(paginatedPokemon),
-              ),
-            ],
-            child: App(),
-          ),
+        await tester.pumpApp(
+          const HomePage(),
+          providerOverrides: [
+            pokemonsFutureProvider.overrideWith(
+              (ref) => Future.value(paginatedPokemon),
+            ),
+          ],
         );
         await tester.pumpAndSettle();
-        await tester.tap(find.text('Next Page'));
+        await tester.tap(find.text('Next page'));
         await tester.pumpAndSettle();
       });
     });
@@ -154,18 +150,16 @@ void main() {
         (tester) async {
       pageOffset = 1;
       await mockNetworkImagesFor(() async {
-        await tester.pumpWidget(
-          ProviderScope(
-            overrides: [
-              pokemonsFutureProvider.overrideWith(
-                (ref) => Future.value(paginatedPokemon),
-              ),
-            ],
-            child: App(),
-          ),
+        await tester.pumpApp(
+          const HomePage(),
+          providerOverrides: [
+            pokemonsFutureProvider.overrideWith(
+              (ref) => Future.value(paginatedPokemon),
+            ),
+          ],
         );
         await tester.pumpAndSettle();
-        await tester.tap(find.text('Previous Page'));
+        await tester.tap(find.text('Previous page'));
         await tester.pumpAndSettle();
       });
     });

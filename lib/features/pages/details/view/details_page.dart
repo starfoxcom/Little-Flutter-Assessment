@@ -61,15 +61,20 @@ class _HomePageState extends ConsumerState<DetailsPage> {
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
-                        '${l10n.detailsBaseExperienceLabel} ${data.base_experience}',
+                        '${l10n.detailsBaseExperienceLabel}'
+                        ' ${data.base_experience}',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
-                        '${l10n.detailsAbilitiesLabel} ${data.abilities?.map((e) => e.ability?.name).join(', ')}',
+                        '${l10n.detailsAbilitiesLabel} ${data.abilities?.map(
+                              (e) => e.ability?.name,
+                            ).join(', ')}',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       Text(
-                        '${l10n.detailsTypesLabel} ${data.types?.map((e) => e.type?.name).join(', ')}',
+                        '${l10n.detailsTypesLabel} ${data.types?.map(
+                              (e) => e.type?.name,
+                            ).join(', ')}',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],

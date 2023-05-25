@@ -16,6 +16,14 @@ const PokemonDetails pokemonDetails = PokemonDetails(
       type: Species(name: 'poison'),
     ),
   ],
+  abilities: [
+    Ability(
+      ability: Species(name: 'overgrow'),
+    ),
+    Ability(
+      ability: Species(name: 'chlorophyll'),
+    ),
+  ],
   sprites: Sprites(
     front_default:
         'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',

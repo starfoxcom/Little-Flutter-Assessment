@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:little_flutter_assessment/features/pages/home/widgets/widgets.dart';
 import 'package:little_flutter_assessment/l10n/l10n.dart';
-import 'package:little_flutter_assessment/router/router.dart';
 import 'package:pokemon_repository/pokemon_repository.dart';
 
 int pageOffset = 0;
@@ -48,27 +48,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                   itemBuilder: (context, index) {
                     final pokemon = pokemonList?[index];
 
-                    return Card(
-                      child: InkWell(
-                        onTap: () {
-                          context.pushRoute(
-                            DetailsRouter(pokemonName: pokemon?.name ?? ''),
-                          );
-                        },
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Image.network(
-                                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${(((pageOffset * 20) + (index + 1)) > 1010) ? (((pageOffset * 20) + (index + 1)) - 1010) + 10000 : (pageOffset * 20) + (index + 1)}.png',
-                                fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Icon(Icons.error),
-                              ),
-                            ),
-                            Text(pokemon?.name ?? ''),
-                          ],
-                        ),
-                      ),
+                    return PokemonCard(
+                      pokemon: pokemon,
+                      listIndex: index,
+                      pageOffset: pageOffset,
                     );
                   },
                 ),

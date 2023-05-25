@@ -45,8 +45,15 @@ class _HomePageState extends ConsumerState<DetailsPage> {
                         data.sprites?.front_default ?? '',
                         fit: BoxFit.cover,
                         scale: .5,
+                        // Ignore coverage for Image.network since it's
+                        // not possible to hit the errorBuilder in tests due to
+                        // the image mocking to avoid status 400 in testWidgets.
+                        // Unless there's a way to test this, I'm not sure
+                        // how to get it done at the moment.
+                        // coverage:ignore-start
                         errorBuilder: (context, error, stackTrace) =>
                             const Icon(Icons.error),
+                        // coverage:ignore-end
                       ),
                       Text(
                         '${l10n.detailsNameLabel} ${data.name}',

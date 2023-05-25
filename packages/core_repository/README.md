@@ -44,7 +44,7 @@ dart pub global activate very_good_cli
 To run all unit tests:
 
 ```sh
-very_good test --coverage
+very_good test --optimization --coverage --test-randomize-ordering-seed random
 ```
 
 To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
@@ -56,6 +56,23 @@ genhtml coverage/lcov.info -o coverage/
 # Open Coverage Report
 open coverage/index.html
 ```
+---
+## Generated Code and Coverage
+```sh
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+The generated files (`.g.dart` and `.repo.g.dart` extensions) need to be omitted from the coverage report (until the auto generated file adds the ignore coverage property):
+
+```sh
+# Add this comment after generating the files
+// coverage:ignore-file
+```
+List of generated files that need to be omitted from the coverage report:
+- `lib/src/core_repository.g.dart`
+- `lib/src/core_repository.repo.g.dart`
+
+---
 
 [flutter_install_link]: https://docs.flutter.dev/get-started/install
 [github_actions_link]: https://docs.github.com/en/actions/learn-github-actions

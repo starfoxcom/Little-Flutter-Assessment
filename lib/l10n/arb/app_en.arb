@@ -1,7 +1,57 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
+    "homeAppBarTitle": "Pokemons",
+    "@homeAppBarTitle": {
+        "description": "Title of the AppBar on the Home page"
+    },
+    "homePagination":"Page {page} of {total}",
+    "@homePagination": {
+        "description": "Pagination label on the Home page",
+        "placeholders": {
+            "page": {
+                "type": "int",
+                "example": "1"
+            },
+            "total": {
+                "type": "int",
+                "example": "64"
+            }
+        }
+    },
+    "homeNextPageButton": "Next page",
+    "@homeNextPageButton": {
+        "description": "Label of the button to go to the next page"
+    },
+    "homePreviousPageButton": "Previous page",
+    "@homePreviousPageButton": {
+        "description": "Label of the button to go to the previous page"
+    },
+    "detailsAppBarTitle": "Pokemon details",
+    "@detailsAppBarTitle": {
+        "description": "Title of the AppBar on the Details page"
+    },
+    "detailsNameLabel": "Name:",
+    "@detailsNameLabel": {
+        "description": "Label of the name field"
+    },
+    "detailsHeightLabel": "Height:",
+    "@detailsHeightLabel": {
+        "description": "Label of the height field"
+    },
+    "detailsWeightLabel": "Weight:",
+    "@detailsWeightLabel": {
+        "description": "Label of the weight field"
+    },
+    "detailsBaseExperienceLabel": "Base experience:",
+    "@detailsBaseExperienceLabel": {
+        "description": "Label of the base experience field"
+    },
+    "detailsAbilitiesLabel": "Abilities:",
+    "@detailsAbilitiesLabel": {
+        "description": "Label of the abilities field"
+    },
+    "detailsTypesLabel": "Types:",
+    "@detailsTypesLabel": {
+        "description": "Label of the types field"
     }
 }

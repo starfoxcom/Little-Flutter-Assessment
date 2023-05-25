@@ -25,7 +25,7 @@ abstract class PokemonRepository {
   Future<PaginatedPokemon> getPaginatedPokemon({int pageOffset = 0});
 
   /// Get pokemon details by id
-  Future<PokemonDetails> getPokemonDetails({required int id});
+  Future<PokemonDetails> getPokemonDetails({required String pokemonName});
 }
 
 /// CoreRepository implementation
@@ -43,7 +43,7 @@ class PokemonRepositoryImpl implements PokemonRepository {
     final response = await client.get<Map<String, dynamic>>(
       'pokemon',
       queryParameters: <String, dynamic>{
-        'offset': pageOffset,
+        'offset': pageOffset * 20,
         'limit': 20,
       },
     );
@@ -53,8 +53,11 @@ class PokemonRepositoryImpl implements PokemonRepository {
 
   /// Get pokemon details by id
   @override
-  Future<PokemonDetails> getPokemonDetails({required int id}) async {
-    final response = await client.get<Map<String, dynamic>>('pokemon/$id');
+  Future<PokemonDetails> getPokemonDetails({
+    required String pokemonName,
+  }) async {
+    final response =
+        await client.get<Map<String, dynamic>>('pokemon/$pokemonName');
 
     return PokemonDetails.fromJson(response.data ?? {});
   }

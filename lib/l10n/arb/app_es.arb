@@ -1,7 +1,57 @@
 {
     "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
+    "homeAppBarTitle": "Pokemons",
+    "@homeAppBarTitle": {
+        "description": "Titulo de la barra de navegación de la página principal"
+    },
+    "homePagination":"Página {page} de {total}",
+    "@homePagination": {
+        "description": "Paginación de la página principal",
+        "placeholders": {
+            "page": {
+                "type": "int",
+                "example": "1"
+            },
+            "total": {
+                "type": "int",
+                "example": "64"
+            }
+        }
+    },
+    "homeNextPageButton": "Siguiente página",
+    "@homeNextPageButton": {
+        "description": "Texto del botón para ir a la siguiente página"
+    },
+    "homePreviousPageButton": "Página anterior",
+    "@homePreviousPageButton": {
+        "description": "Texto del botón para ir a la página anterior"
+    },
+    "detailsAppBarTitle": "Detalles del pokemon",
+    "@detailsAppBarTitle": {
+        "description": "Titulo de la barra de navegación de la página de detalles"
+    },
+    "detailsNameLabel": "Nombre:",
+    "@detailsNameLabel": {
+        "description": "Etiqueta del nombre del pokemon"
+    },
+    "detailsHeightLabel": "Altura:",
+    "@detailsHeightLabel": {
+        "description": "Etiqueta de la altura del pokemon"
+    },
+    "detailsWeightLabel": "Peso:",
+    "@detailsWeightLabel": {
+        "description": "Etiqueta del peso del pokemon"
+    },
+    "detailsBaseExperienceLabel": "Experiencia base:",
+    "@detailsBaseExperienceLabel": {
+        "description": "Etiqueta de la experiencia base del pokemon"
+    },
+    "detailsAbilitiesLabel": "Habilidades:",
+    "@detailsAbilitiesLabel": {
+        "description": "Etiqueta de las habilidades del pokemon"
+    },
+    "detailsTypesLabel": "Tipos:",
+    "@detailsTypesLabel": {
+        "description": "Etiqueta de los tipos del pokemon"
     }
 }

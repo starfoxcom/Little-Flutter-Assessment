@@ -1,13 +1,20 @@
+import 'package:core_repository/core_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:little_flutter_assessment/counter/counter.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:little_flutter_assessment/l10n/l10n.dart';
+import 'package:little_flutter_assessment/router/router.dart';
 
-class App extends StatelessWidget {
-  const App({super.key});
+class App extends ConsumerWidget {
+  App({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Initialize the CoreRepository
+    ref.watch(coreRepositoryProvider).init();
+
+    return MaterialApp.router(
       theme: ThemeData(
         appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
         colorScheme: ColorScheme.fromSwatch(
@@ -16,7 +23,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      routerConfig: _appRouter.config(),
     );
   }
 }
